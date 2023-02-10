@@ -1,0 +1,35 @@
+<div class="container">
+  <header class="jumbotron">
+    <button type="button" class="btn btn-primary" (click)="addBtn()">Add new</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Roles</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th scope="row">{{user.id}}</th>
+           <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <ul>
+              <li *ngFor="let role of user.roles">{{role.name}}</li>
+            </ul>
+          </td>
+          <td>
+              <button (click)="editBtn(user.id)">Edit</button>
+          </td>
+          <td>
+            <button (click)="deleteBtn(user.id)">Delete</button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </header>
+</div>
